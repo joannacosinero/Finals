@@ -16,8 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','SiteController@index');
 
 Route::get('/users', 'UserController@index');
+Route::post('/users', 'UserController@store');
+Route::patch('/users/{id}', 'UserController@update');
+Route::get('/users/create', 'UserController@create');
+Route::get('/users/edit/{id}', 'UserController@edit');
 
 Route::get('/instructors', 'InstructorController@index');
+Route::post('/instructors', 'InstructorController@store');
+Route::patch('/instructors/{id}', 'InstructorController@update');
+Route::get('/instructors/create', 'InstructorController@create');
+Route::get('/instructors/edit/{id}', 'InstructorController@edit');
 
 Route::get('/learners', 'LearnerController@index');
 
