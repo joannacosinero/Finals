@@ -42,4 +42,13 @@ class UserController extends Controller
 
         return redirect('/users')->with('info', "The record of $user->fname $user->lname.");
     }
+    public function delete(Request $request) {
+        $userId = $request['user_id'];
+        $user = User::find($userId);
+        $name = $user->lname . ", " .  $user->fname;
+
+        $user->delete();
+
+        return redirect('/users')->with('info', "The user $name has ben deleted");
+    }
 }
